@@ -86,13 +86,12 @@ async function displayAlbum() {
         // Remove http://127.0.0.1:5500 from e.href
         const cleanedHref = e.href.replace("http://127.0.0.1:5500", "");
     
-        if (cleanedHref.includes("./songs") && (cleanedHref !== "/songs")) {
+        if (cleanedHref.includes("/songs") && (cleanedHref !== "/songs")) {
             let folder = cleanedHref.split("/").slice(-2)[1];
     
             let a = await fetch(`./songs/${folder}/info.json`);
             let response = await a.json();
             console.log(response);
-            
         
     
     
